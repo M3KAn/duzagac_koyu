@@ -1091,8 +1091,9 @@ def open_browser():
     webbrowser.open("http://127.0.0.1:5050")
 
 if __name__ == "__main__":
-    # EXE açılınca tarayıcı otomatik açılsın
-    threading.Timer(0.8, open_browser).start()
-app.run(host="127.0.0.1", port=5050, debug=False)
+    import os
+    port = int(os.environ.get("PORT", 5050))
+    app.run(host="0.0.0.0", port=port, debug=False)
+
 
 
